@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        while (true)
+    {
+        let promptResult1 = prompt('please insert rectangle width: ')
+        let promptResult2 = prompt('please insert rectangle hight: ')
+        
+        if (parseInt(promptResult1) >= 1 && parseInt(promptResult2) >=1) 
+        {
+        
+            alert('rectangle area is: ' + promptResult1*promptResult2)
+            alert('rectangle circumference is: ' + (promptResult1*2 + promptResult2*2))
+            break
+        }
+        else 
+        {
+            alert('please insert two numbers bigger then 1')
+        }
+    } 
+    </script>
+</body>
+</html>
