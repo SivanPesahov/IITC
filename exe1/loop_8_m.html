@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = prompt()
+        let sum = 1 
+        let i = 1
+        do {
+            sum *= i
+            i++
+
+        } while (i<=num)
+        console.log(sum) 
+
+
+        let minNumber = Number.MAX_SAFE_INTEGER;
+        let maxNumber = Number.MIN_SAFE_INTEGER;
+        let count = 0;
+
+        do {
+            let input = prompt("Please enter a real number:");
+            let number = parseFloat(input); 
+                minNumber = Math.min(minNumber, number);
+                maxNumber = Math.max(maxNumber, number);
+                count++;
+            
+        } while (count < 5); 
+
+        console.log("The minimum number is: " + minNumber);
+        console.log("The maximum number is: " + maxNumber);
+
+
+    </script>
+</body>
+</html>

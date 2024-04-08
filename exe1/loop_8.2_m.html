@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let i = 1
+        do{
+            console.log(i)
+            i++
+        }while(i<=100)
+
+
+        let sum = 0;
+        let average;
+        const num = 5;
+        let j = 0;
+        do {
+            let input = prompt("Please enter a number:");
+            let number = parseFloat(input);
+            sum += number;
+            j++;
+        } while (j < num);
+
+        average = sum / num;
+        console.log("The average is: " + average);
+
+
+
+    </script>
+</body>
+</html>

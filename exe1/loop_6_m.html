@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            let minNumber = Number.MAX_SAFE_INTEGER;
+            let maxNumber = Number.MIN_SAFE_INTEGER;
+
+            for (let i = 0; i < 5; i++) {
+                let input = prompt("Please enter a real number:");
+                let number = parseFloat(input); 
+                if (number < minNumber) {
+                    minNumber = number;
+                }
+                if (number > maxNumber) {
+                    maxNumber = number;
+                }
+                
+            }
+
+            console.log("The minimum number is: " + minNumber);
+            console.log("The maximum number is: " + maxNumber);
+
+
+        
+    </script>
+</body>
+</html>
