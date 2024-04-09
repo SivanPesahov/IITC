@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let playing = true
+        do
+        {
+            let min = 0; 
+            let max = 99; 
+            let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+            console.log(randomNumber)
+            let x = prompt('Please enter a number: ')
+            let guess = parseInt(x)
+            if (guess > randomNumber)
+            {
+                console.log('Above random')
+            }
+            else
+            {
+                console.log('Below random')
+
+            }
+            let continue_playing = prompt('Another round? Y/N')
+            if(continue_playing === 'N')
+            {
+                playing = false
+                break
+            }
+        }while(playing === true)
+            
+            
+
+
+    </script>
+</body>
+</html>
