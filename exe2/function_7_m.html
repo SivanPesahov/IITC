@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function stars(num)
+        {
+            for(let i = 0; i <= num; i++) 
+            {
+                let s = ""
+                for(let j = 0; j <= i; j++) 
+                {
+                    s+= "*"
+                }
+                console.log(s)
+            }
+        }
+        let x = prompt()
+        let x1 = parseInt(x)
+        
+        console.log(stars(x1))
+    </script>
+</body>
+</html>

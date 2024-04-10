@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sum_of_digits(num)
+        {
+            let sum = 0 
+            let num_string = num.toString()
+            for(let i = 0; i< num_string.length; i++)
+            {
+                sum += parseInt(num_string.charAt(i))
+            }
+            return sum
+            
+        }
+        let x = prompt()
+        let x1 = parseInt(x)
+        
+        console.log(sum_of_digits(x1))
+    </script>
+</body>
+</html>

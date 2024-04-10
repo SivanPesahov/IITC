@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr1 = ['a','b','c','d','e','f','g','h','i','j','k']
+        for(let i = 1; i < arr1.length; i++)
+        {
+            let new_arr = []
+            arr1[i] = new_arr
+            for(let j = 1; j<arr1.length; j++) 
+            {
+                new_arr[j] = i*j
+            }
+        }
+        console.log(arr1)
+    </script>
+</body>
+</html>

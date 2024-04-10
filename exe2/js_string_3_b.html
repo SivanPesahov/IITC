@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function longest(str)
+        {
+            let arr_key_value = str.split(',')
+            new_arr = []
+            for(let i = 0; i < arr_key_value.length; i++)
+            {
+                let temp_arr = arr_key_value[i].split(':')
+                new_arr.push(temp_arr[1])
+            }
+            let longest = ''
+            for(let i = 0; i < new_arr.length; i++)
+            {
+                if(new_arr[i].toString().length > longest.length)
+                {
+                    longest = new_arr[i]
+                }
+            }
+
+            return longest
+        }
+
+
+        let str = "name:nathan , family:krasney , city:haifa, aaa:bbbbbbbbbbbb"
+        console.log(longest(str))
+    </script>
+</body>
+</html>
