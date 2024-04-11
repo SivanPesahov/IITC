@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let playing = true
+        let ppplaying = true  
+        let board_size = parseInt(prompt('Please insert tables size: '))
+        let board = []
+        let player_1_wins = 0
+        let player_2_wins = 0
+        
+        function create_board()
+        {
+            for (let i = 0; i < board_size; i++)
+            {
+                let row = []
+                for(let j = 0; j < board_size; j++)
+                    {
+                        row.push('-')
+                    }
+                board.push(row)
+            }
+            return board
+        }
+        
+        function check_if_win_by_row(row_index)
+        {  
+            let sum_x = 0
+            let sum_0 = 0
+            for (let col = 0; col < board.length; col++)
+            {
+                if (board[row_index][col] === 'x')
+                {
+                    sum_x +=1
+                }
+                if (board[row_index][col] === '0')
+                {
+                    sum_0 +=1
+                }
+            }
+            if(sum_0 == board.length)
+            {
+                return true
+            }
+            if(sum_x == board.length)
+            {
+                return true
+            }
+                
+        }
+        
+        function check_if_win_by_col(col_index)
+        {
+            let sum_x = 0
+            let sum_0 = 0
+            for (let row = 0; row < board.length; row++)
+            {
+                if (board[row][col_index] === 'x')
+                {
+                    sum_x +=1
+                }
+                if (board[row][col_index] === '0')
+                {
+                    sum_0 +=1
+                }
+            }
+            if(sum_0 == board.length)
+            {
+                return true
+            }
+            if(sum_x == board.length)
+            {
+                return true
+            }
+
+        }
+        
+        function check_if_win_by_diag_ltr()
+        {
+            let sum_x = 0
+            let sum_0 = 0
+
+            for(let i = 0; i < board.length; i++)
+            {
+                if(board[i][i] === 'x')
+                {
+                    sum_x += 1
+                }
+                if(board[i][i] === '0')
+                {
+                    sum_0 += 1
+                }
+                 
+            }
+            if (sum_x == board.length)
+            {
+                return true
+            }
+            if (sum_0 == board.length)
+            {
+                return true
+            }
+        }
+        
+        function check_if_win_by_diag_rtl()
+        {
+            let sum_x = 0
+            let sum_0 = 0
+
+            for(i = 0; i < board.length; i++)
+            {
+                if(board[i][board.length -1-i] === 'x')
+                {
+                    sum_x += 1
+                }
+                if(board[i][board.length -1-i] === '0')
+                {
+                    sum_0 += 1
+                }
+                 
+            }
+            if (sum_x == board.length)
+            {
+                return true
+            }
+            if (sum_0 == board.length)
+            {
+                return true
+            }
+        }
+        
+        function check_if_win(row_index, col_index)
+        {
+            if(check_if_win_by_row(row_index) == true)
+            {
+                return true
+            }
+            if(check_if_win_by_col(col_index) == true)
+            {               
+                return true
+            }
+            if(check_if_win_by_diag_rtl() == true)
+            {
+                return true
+            }if(check_if_win_by_diag_ltr == true)
+            {        
+                return true
+            }
+            
+        }
+        
+        function insert_x(row_index, col_index)
+        {
+            if(board[row_index][col_index] == '-')
+            {
+                board[row_index][col_index] = 'x'
+            }
+            else
+            {
+                console.log('Place is already taken')
+                return false
+            }
+            
+        }
+
+        function insert_0(row_index, col_index)
+        {
+            if(board[row_index][col_index] == '-')
+            {
+                board[row_index][col_index] = '0'
+            }
+            else
+            {
+                console.log('Place is already taken')
+                return false
+            }
+        }
+
+
+
+        let player_1 = prompt('Please enter first player name: ')
+        let player_2 = prompt('Please enter second player name: ')
+        
+
+        while (ppplaying == true)
+        {
+            console.log(create_board()) 
+            while (playing == true)
+            {
+                console.log(`${player_1}, please insert x, while mentioning row and colomn index`)
+                let r = parseInt(prompt('Please insert row number'))
+                let c = parseInt(prompt('Please insert colomn number'))
+                while (r > board.length || c > board.length)
+                {
+                    console.log('Out of range!')
+                    let r = parseInt(prompt('Please insert row number'))
+                    let c = parseInt(prompt('Please insert colomn number'))
+                }
+                insert_x(r,c)          
+                if(check_if_win(r,c) == true)
+                {
+                    player_1_wins += 1
+                    let ans = prompt(`${player_1} won the game! do you want to play again? y/n: `)
+                    if (ans == 'n')
+                    {
+                        playing = false
+                        ppplaying = false  
+                        break
+                    }
+                    else
+                    {
+                        playing = false
+                        break
+                    }
+                }
+                console.log(`${player_2}, please insert x, while mentioning row and colomn index`)
+                r = parseInt(prompt('Please insert row number'))
+                c = parseInt(prompt('Please insert colomn number'))
+                while (r > board.length || c > board.length)
+                {
+                    console.log('Out of range!')
+                    let r = parseInt(prompt('Please insert row number'))
+                    let c = parseInt(prompt('Please insert colomn number'))
+                }
+                insert_x(r,c)          
+                if(check_if_win(r,c) == true)
+                {
+                    player_2_wins += 1
+                    let ans = prompt(`${player_2} won the game! do you want to play again? y/n: `)
+                    if (ans == 'n')
+                    {
+                        playing = false
+                        ppplaying = false
+                        break
+                    }
+                    else
+                    {
+                        playing = false
+                        break
+                    }
+                }
+            }
+        }
+        
+        console.log(`${player_1} has ` + player_1_wins + 'wins')
+        console.log(`${player_2} has ` + player_2_wins + 'wins')
+
+
+        
+        
+    </script>
+</body>
+</html>

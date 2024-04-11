@@ -12,20 +12,22 @@
             let sum = 0
             for(let i = 0; i <= arr.length; i++)
             {
-                temp = arr[i]
-                let sum2 = 0
-                for(let j = i; j < arr.length - i; j++)
+                for(let j = 0; j <= arr.length; j++)
                 {
-                    if(arr[j] === temp)
+                    if(arr[j] === arr[i])
                     {
-                        sum2 +=1
+                        break
+                    }
+                    else
+                    {
+                        if((j = arr.length)  && (arr[j] != arr[arr.length]))
+                        {
+                            sum +=1
+                        }
                     }
                          
                 }
-                if (sum2 === 0)
-                {
-                    sum +=1
-                }
+                
             
             }
             return sum
