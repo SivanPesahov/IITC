@@ -181,27 +181,39 @@
             }
         }
 
+        function print_board()
+        {
+            for (let i = 0; i < board.length; i++)
+            {
+                console.log(i)
+            }
+        }
 
+        
 
         let player_1 = prompt('Please enter first player name: ')
         let player_2 = prompt('Please enter second player name: ')
         
-
+        console.log(create_board()) 
+        alert(board)
         while (ppplaying == true)
         {
-            console.log(create_board()) 
+            
             while (playing == true)
             {
                 console.log(`${player_1}, please insert x, while mentioning row and colomn index`)
                 let r = parseInt(prompt('Please insert row number'))
                 let c = parseInt(prompt('Please insert colomn number'))
-                while (r > board.length || c > board.length)
+                while (r >= board.length || c >= board.length)
                 {
                     console.log('Out of range!')
-                    let r = parseInt(prompt('Please insert row number'))
-                    let c = parseInt(prompt('Please insert colomn number'))
+                    r = parseInt(prompt('Please insert row number'))
+                    c = parseInt(prompt('Please insert colomn number'))
                 }
-                insert_x(r,c)          
+                insert_x(r,c)
+                console.log('Inserted: '+ r +' as row')
+                console.log('Inserted: '+ c +' as colomn')
+                         
                 if(check_if_win(r,c) == true)
                 {
                     player_1_wins += 1
@@ -221,13 +233,16 @@
                 console.log(`${player_2}, please insert x, while mentioning row and colomn index`)
                 r = parseInt(prompt('Please insert row number'))
                 c = parseInt(prompt('Please insert colomn number'))
-                while (r > board.length || c > board.length)
+                while (r >= board.length || c >= board.length)
                 {
                     console.log('Out of range!')
-                    let r = parseInt(prompt('Please insert row number'))
-                    let c = parseInt(prompt('Please insert colomn number'))
+                    r = parseInt(prompt('Please insert row number'))
+                    c = parseInt(prompt('Please insert colomn number'))
                 }
-                insert_x(r,c)          
+                insert_0(r,c)
+                console.log('Inserted: '+ r +' as row')
+                console.log('Inserted: '+ c +' as colomn')
+                          
                 if(check_if_win(r,c) == true)
                 {
                     player_2_wins += 1
