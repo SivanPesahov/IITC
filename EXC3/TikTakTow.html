@@ -9,7 +9,7 @@
     <script>
         let playing = true
         let ppplaying = true  
-        let board_size = parseInt(prompt('Please insert tables size: '))
+        let board_size = parseInt(prompt('Please insert boards size: '))
         let board = []
         let player_1_wins = 0
         let player_2_wins = 0
@@ -194,8 +194,8 @@
         let player_1 = prompt('Please enter first player name: ')
         let player_2 = prompt('Please enter second player name: ')
         
-        console.log(create_board()) 
-        alert(board)
+        create_board()
+        console.log(board)
         while (ppplaying == true)
         {
             
