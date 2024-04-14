@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let book1 = {name : 'aaa', pages : 100}
+        let book2 = {name : 'bbb', pages : 150}
+        let book3 = {name : 'ccc', pages : 200}
+        let book4 = {name : 'ddd', pages : 250}
+        let book5 = {name : 'eee', pages : 300}
+
+        const library = [
+        book1,
+        book2,
+        book3,
+        book4,
+        book5,
+        ]
+
+        function DeleteBook(arr, bookName){
+            let sum = 0
+            for(i of arr){
+                if (i.name == bookName){
+                    arr.splice(sum,1)
+                    return true
+                }
+                sum ++
+            }
+            if (sum == arr.length){
+                return false
+            }
+        }
+
+        DeleteBook(library, 'zzz')
+        console.log(library)
+
+    </script>
+</body>
+</html>

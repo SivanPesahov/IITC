@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const person1 = {
+            
+            firstName: 'John',
+            lastName: 'Deer',
+            age :33,
+        }
+
+        const person2 = {
+            
+            firstName: 'sivan',
+            lastName: 'pesahov',
+            age :50,
+        }
+        
+        const book = {
+            bookName: 'richdad poordad',
+            bookLength: 150,
+        }
+
+        const persons = [
+        person1,
+        person2,
+        {firstName: 'shaked', lastName: 'pesahov', age: 19}
+        ]
+
+        const personsAndBooks = [
+        person1,
+        person2,
+        book,
+        {firstName: 'shaked', lastName: 'pesahov', age: 19}
+        ]
+
+
+        function GetAgeAVG(personArray)
+        {
+            let sum = 0
+            for(i of personArray)
+            {
+                sum +=i.age;
+            }
+            return sum/personArray.length
+        }
+
+        function GetAgeAVG2(personArray)
+        {
+            let sum = 0
+            personArray.forEach((i) => {
+                sum += i.age
+            })
+            return sum/personArray.length
+        }
+    
+        function GetOldest(personArray)
+        {
+            let oldest = 0
+
+            for (i in personArray)
+            {
+                if(personArray[i].age > oldest)
+                {
+                    oldest = personArray[i].age
+                }
+            }
+            for (i in personArray)
+            {
+                if (oldest == personArray[i].age)
+                {
+                    return personArray[i]
+                }
+            } 
+        }
+        
+        function GetOldest2(personArray)
+        {
+            const tempPerson = {age: 0, index: undefined, firstName:undefined}
+            personArray.forEach((i, index) => {
+                if(i.age > tempPerson.age)
+                {
+                    tempPerson.age = i.age;
+                    tempPerson.index = index;
+                    tempPerson.firstName = i.firstName;
+                    
+                }
+                })
+            return tempPerson;
+            }
+        
+        console.log(GetAgeAVG(persons))
+        console.log(GetAgeAVG2(persons))
+        console.log(GetOldest(persons))
+        console.log(GetOldest2(persons))
+        
+            
+            
+            
+        </script>
+    </body>
+    </html>
