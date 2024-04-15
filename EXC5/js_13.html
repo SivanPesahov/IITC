@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    
+    <div class = 'wrapper'> 
+            <div class = 'upper_portion'>
+                <div class = 'reset_button'>
+                    <button onclick="resetToZero()">CE</button>
+                </div>
+                <div class = 'window'>
+                    <p id ='calc_window'></p>
+                </div>
+            </div>
+
+            <div class = 'buttons_area'>
+
+                <div class = 'left_buttons'>
+                    <br>
+                    <button onclick="insertNumber(7)">7</button>
+                    <button onclick="insertNumber(8)">8</button>
+                    <button onclick="insertNumber(9)">9</button>
+                    <br>
+                    <br>
+                    <button onclick="insertNumber(4)">4</button>
+                    <button onclick="insertNumber(5)">5</button>
+                    <button onclick="insertNumber(6)">6</button>
+                    <br>
+                    <br>
+                    <button onclick="insertNumber(1)">1</button>
+                    <button onclick="insertNumber(2)">2</button>
+                    <button onclick="insertNumber(3)">3</button>
+                    <br>
+                    <br>
+                    <button onclick="insertNumber(0)">0</button>
+                    <button onclick="insertNumber('.')">.</button>
+                    <button onclick="equals()">=</button>
+                </div>
+
+                <div class = 'right_buttons'>
+                    <br>
+                    <button onclick="dividing()">/</button>
+                    <br>
+                    <br>
+                    <button onclick="multi()">*</button>
+                    <br>
+                    <br>
+                    <button onclick="subbing()">-</button>
+                    <br>
+                    <br>
+                    <button onclick="adding()">+</button>
+                    <br>
+                    <br>
+                </div>
+
+            </div>
+
+    </div>
+
+    <script src = 'script2.js'></script>
+</body>
+</html>

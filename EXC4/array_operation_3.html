@@ -23,16 +23,18 @@
         ]
 
         function UpdateBookPages(arr, bookName, pagesNumber){
-            
+            const tempBook = {name : undefined, pages : 0}
             arr.forEach((i) => {
                 if(i.name == bookName){
                     i.pages = pagesNumber
-                    return i
+                    tempBook.name = bookName;
+                    tempBook.pages = pagesNumber;
                 }
             })
+            return tempBook
         }
 
-        console.log(UpdateBookPages(library,'aaa',500))
+        console.log(UpdateBookPages(library,'aaa',1000))
 
 
 

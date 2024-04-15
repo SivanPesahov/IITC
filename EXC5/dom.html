@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id = 'id1'>hello DOM</div>
+    <button onclick = 'ClickFunc()'>Click here!</button> 
+    <p id = 'message'></p>
+
+    <script>
+        
+        console.log(this) // window object - where everything is going on
+        window.console.log(123) // console.log is from window object
+        console.log(window.document) // Dom
+        console.log(document) // DOM = Doucument Object Model
+        const divElement = document.querySelector('#id1') // CSS selector
+        console.log(divElement)
+        const messageElm = document.querySelector('#message') // selecting a html obj (<p>)
+            
+        function ClickFunc(){ //asserting the ClickFunc func into the button
+            messageElm.innerText = 'hello world' // inserting text into the html obj
+            messageElm.style.color = 'red'
+            
+        }
+
+    </script>
+</body>
+</html>

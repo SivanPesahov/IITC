@@ -1,0 +1,50 @@
+.wrapper{
+    border-color: #303030;
+    border-radius: 20px;
+    
+}
+
+
+.buttons_area{
+    display: flex;
+}
+
+.right_buttons{
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    margin-left: 16px;
+    padding-inline: 8px;
+}
+
+.left_buttons{
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    margin-left: 20px;
+    padding-inline: 8px;
+}
+
+.left_buttons button{
+    border-radius: 50px;
+}
+
+.right_buttons button{
+    border-radius: 50px;
+}
+
+.upper_portion{
+    display: flex;
+    background-color: #EEEEEE;
+}
+
+.upper_portion p{
+    background-color: #DDFCFF;
+    
+}
+.upper_portion button{
+    border-radius: 10px;
+
+}
+
+.reset_button{
+    display: flex;
+}
