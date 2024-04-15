@@ -28,7 +28,6 @@ function resetValues(){
 
 function equals(){
 
-    elemAnswerLine.innerText = int_sum
 
     if(adding_check == 1){
         let n = int_sum + parseFloat(sum)
@@ -81,7 +80,7 @@ function dividing(){
 }
 
 function savingToValues(){
-    int_sum += parseFloat(sum)
+    int_sum = parseFloat(sum)
     sum = ''
     elemAnswerLine.innerText = sum
 }
