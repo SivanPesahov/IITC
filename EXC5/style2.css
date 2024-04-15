@@ -1,7 +1,11 @@
 .wrapper{
     border-color: #303030;
     border-radius: 20px;
-    
+    margin: 30%;
+    background-color: #A8A8A8;
+    width: 180px;
+    height: 250px;
+    padding: 12px;
 }
 
 
@@ -12,19 +16,24 @@
 .right_buttons{
     background-color: #EEEEEE;
     border-radius: 8px;
-    margin-left: 16px;
+    margin-left: 24px;
     padding-inline: 8px;
+}
+
+.right_buttons button{
+    background-color: #02CA00;
 }
 
 .left_buttons{
     background-color: #EEEEEE;
     border-radius: 8px;
-    margin-left: 20px;
+    margin-left: 12px;
     padding-inline: 8px;
 }
 
 .left_buttons button{
     border-radius: 50px;
+    background-color: #CBD6FE;
 }
 
 .right_buttons button{
@@ -32,19 +41,35 @@
 }
 
 .upper_portion{
+    height: 40px;
+    border-radius: 50px;
     display: flex;
-    background-color: #EEEEEE;
+    background-color: #DDFCFF;
+    border-radius: 6px;
+    margin: 8px;
+
 }
 
 .upper_portion p{
     background-color: #DDFCFF;
+    display: inline-block;
     
 }
 .upper_portion button{
     border-radius: 10px;
-
+    background-color: #FEB191;
 }
 
 .reset_button{
     display: flex;
+}
+
+.window{
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+}
+
+.window p{
+    display:inline
 }
