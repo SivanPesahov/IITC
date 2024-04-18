@@ -45,10 +45,15 @@ button{
 
 }
 
-.reset_history_give_up{
+.reset_give_up{
   margin-top: 30px;
   display: flex;
   justify-content: space-around;
+}
+
+.history_table{
+  display: flex;
+  justify-content: center;
 }
 
 .submit_area{
@@ -187,4 +192,23 @@ button{
 .bulls_and_cows_area{
   display: flex;
   justify-content: center;
+} 
+
+table {
+  margin-top: 20px;
+  border: 1px solid #7d2ae8;
+  border-radius: 20px;
+  width: 50%;
+  border-collapse: collapse;
+  color: #7d2ae8;
+}
+
+tr:nth-child(even) {
+  background-color: #7d2ae8;
+}
+
+th , td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #7d2ae8;
 }

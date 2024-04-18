@@ -17,16 +17,24 @@ let guess = ''
 let userGuess = []
 let bulls = 0
 let cows = 0
+let history = []
 const elemUserArr = document.querySelector('#user_arr')
 const elemCompArr = document.querySelector('#computer_arr')
 
 //---------------------------------------------------------------------------
 
+let win = false
+let giveUp = false
 let elemWinMassage = document.querySelector('#win_massage')
 let elemBulls = document.querySelector('#bulls')
 let elemCows = document.querySelector('#cows')
 
 //---------------------------------------------------------------------------
+
+const elemHistoryTable = document.querySelector('table')
+
+//---------------------------------------------------------------------------
+
 
 
 function createRandomArr(){   
@@ -58,7 +66,7 @@ function startGame()
 function countSeconds() {
     seconds++; 
     console.log(seconds)
-    if (seconds >= 3) {
+    if ((win == true) || (giveUp == true)) {
         clearInterval(intervalId); 
         console.log("Count stopped."); 
     }
@@ -77,9 +85,13 @@ function insertNumberIntoGuess(x){
         }
         checkForBulls(userGuess)
         checkForCows(userGuess)
-        if(bulls == 4){
+        let new_element = {userGuess, bulls, cows}
+        history.push(new_element)
+        showHistory()
+        if(bulls == dificultyLevel){
             elemWinMassage.innerText = 'YOU WON!'
             elemWinMassage.style.color = "#7d2ae8"
+            win = true
         }
         else{
             resetTry()
@@ -117,6 +129,7 @@ function resetTry(){
 }
 
 function giveUpAndShowComparr(){
+    giveUp = true
     elemCompArr.innerText = `This is the answer: ${compGuessString}`
     elemCompArr.style.color = "#7d2ae8"
 }
@@ -126,4 +139,12 @@ function ResatAndGoToTheStart()
     playerName = ''
     dificultyLevel = 0
     window.location.href = 'bulls_and_cows_name_page.html';
+}
+
+function showHistory(){
+    elemHistoryTable.innerHTML = "<tr><th>User attempts</th><th>Bulls</th><th>Cows</th></tr>"
+    for (i of history){
+        const elemRowInTable = `<tr><td> ${i.userGuess} </td><td> ${i.bulls} </td> <td> ${i.cows} </td></tr>`
+        elemHistoryTable.innerHTML += elemRowInTable
+    }
 }
