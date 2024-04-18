@@ -26,6 +26,13 @@ button{
 
 }
 
+.bulls_and_cows_headline{
+  text-align: center;
+  font-size: 30px;
+  margin: 10px;  
+  color: #7d2ae8;
+}
+
 .answer{
     text-align: center;
     font-size: 30px;
@@ -36,6 +43,12 @@ button{
     text-align: center;
     margin-top: 50px;
 
+}
+
+.reset_history_give_up{
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .submit_area{
@@ -169,4 +182,9 @@ button{
 .game_area{
     text-align: center;
 
+}
+
+.bulls_and_cows_area{
+  display: flex;
+  justify-content: center;
 }
