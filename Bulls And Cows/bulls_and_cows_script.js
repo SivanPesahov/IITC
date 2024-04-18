@@ -6,7 +6,7 @@ elemHello.innerText = `Hi ${playerName}, ready to play?`
 //---------------------------------------------------------------------------
 
 let seconds = 0;
-var intervalId;
+let intervalId;
 const elemTime = document.querySelector('#time_counter')
 
 //---------------------------------------------------------------------------
@@ -139,6 +139,11 @@ function ResatAndGoToTheStart()
     playerName = ''
     dificultyLevel = 0
     window.location.href = 'bulls_and_cows_name_page.html';
+}
+
+function resetValues()
+{
+    location.reload();
 }
 
 function showHistory(){
