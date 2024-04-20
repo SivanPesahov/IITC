@@ -143,3 +143,39 @@ nav a:hover{
     width: 460px;
 }
 
+.contact_area{
+    background-color: #3B376D;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    
+}
+.abc{
+    text-align: center;
+}
+
+.sss{
+    display: flex;
+}
+
+.message_area{
+    margin-top: 36px;
+}
+.message_area input{
+    height: 160px;
+}
+
+.qwe{
+    text-align: end;
+    margin-top: 20px;
+    
+    
+}
+
+footer{background-color: black;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
