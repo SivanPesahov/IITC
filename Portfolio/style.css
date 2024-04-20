@@ -1,0 +1,94 @@
+@import "css/reset.css";
+@import "css/variables.css";
+
+/*  UTILS */
+@import "css/utils/layout.utils.css";
+@import "css/utils/spacing.utils.css";
+@import "css/utils/typography.utils.css";
+@import "css/utils/flex-grid.utils.css";
+
+/*  COMPONENTS (UI) */
+@import "css/components/button.component.css";
+@import "css/components/input.component.css";
+@import "css/components/card.component.css";
+@import "css/components/reel.component.css";
+
+body{
+    background-color: #952CE5;
+}
+
+.aaa{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+nav{
+    background-color: #200E3D;
+    color: white;
+    display: flex;
+    justify-content: center;
+    
+}
+
+nav a{
+    margin: 20px;
+    
+}
+nav a:hover{
+    color: #38A5ED;
+}
+
+.img_of_rob{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+.img_of_rob img{
+    border-radius: 400px;
+}
+
+.introduction{
+    display: flex;
+    justify-content: center;
+}
+
+.introduction p{
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.about_me{
+    background-color: white;
+    margin: 300px;
+    padding: 100px;
+    text-align: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.about_me h3{
+    margin-bottom: 30px;
+    font-size: xx-large;
+    font-weight: bold;
+}
+.pic_and_disc{
+    display: flex;
+    justify-content:space-around;
+    
+    
+}
+
+.pic_and_disc img{
+    width: 400px;
+    height: 480px; 
+    margin-left: 60px;
+    /* margin-bottom: 60px; */
+}
+
+.text_area{
+    text-align: start;
+    /* margin-left: 50px; */
+    margin-right: 120px;
+    margin-left: 40px;
+    margin-top: 40px;
+}
