@@ -136,6 +136,7 @@ nav a:hover{
 
 .bbc{
     margin-left: 20px;
+    margin-bottom: 50px;
 }
 
 .ccc img{
@@ -149,18 +150,34 @@ nav a:hover{
     display: flex;
     justify-content: center;
     margin-top: 60px;
+    text-align: center;
     
+}
+.contact_area p {
+    margin-bottom: 8px
 }
 .abc{
     text-align: center;
+    width: 1000px;
+    
+}
+
+.abc h3{
+    text-align: center;
+
 }
 
 .sss{
     display: flex;
+    justify-content: center;
+    /* text-align: center; */
+
 }
 
 .message_area{
     margin-top: 36px;
+    text-align: start;
+
 }
 .message_area input{
     height: 160px;
@@ -169,8 +186,17 @@ nav a:hover{
 .qwe{
     text-align: end;
     margin-top: 20px;
-    
-    
+    border-radius: 20px;
+}
+
+.qwe button{
+    border-radius: 4px;
+    background-color: #ADD8E6;
+    margin-bottom: 20px;
+}
+
+.contact_area h3{
+
 }
 
 footer{background-color: black;
@@ -178,4 +204,43 @@ footer{background-color: black;
     display: flex;
     justify-content: space-between;
     color: white;
+    
+}
+
+
+.upper_footer{
+    background-color: #3C366E;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.contact button{
+    
+}
+
+.sentence{
+    text-align: center;
+    
+}
+
+.writing_area{
+    display: flex;
+}
+
+.info{
+    margin-right: 60px;
+}
+.info input{
+    margin-bottom: 20px;
+}
+
+.messageeee{
+    margin-left: 60px;
+
+}
+.messageeee input{
+    height: 260px;
+    width: 600px;
+    margin-bottom: 50px;
 }
