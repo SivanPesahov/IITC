@@ -1,7 +1,7 @@
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 3 columns */
-    grid-template-rows: repeat(4, 1fr); /* 3 rows */
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(4, 1fr); 
     grid-gap: 10px;
     padding: 10px;
     margin: 0 auto;
@@ -12,10 +12,11 @@
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
-    background-color: black;
     width: 100px; 
     height: 100px;
     color: antiquewhite;
+    background-image: url('./Pictures/black.jpg'); 
+    background-size: cover;
 }
 
 
