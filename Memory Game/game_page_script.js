@@ -22,6 +22,12 @@ intervalId = setInterval(countSeconds, 1000);
 
 //----------------------------------------------------------------------
 
+let shownPics = 0
+let picId1 = ''
+let picId2 = ''
+let picSRC1 = ''
+let picSRC2 = ''
+
 
 let picArr = [
     "Pictures/nat-0.jpg",
@@ -46,18 +52,53 @@ function shuffleArray(array) {
     return array;
 }
 
-for(let j = 0; j < 2; j++){
     let newArr = shuffleArray(picArr)
     for(let i = 0; i < diffLevel; i++){
-        elemGridContainer.innerHTML += `<img src="./Pictures/black.jpg" class = 'grid-item' id = "${i}" width=100 height=100 onclick = "showPic(this)" style="background-image:url(./${newArr[i]}) ;">`
-        // elemGridContainer.innerHTML += `<img src= ./Pictures/black.jpg class = 'grid-item' id = "id${i}" width=100 height=100 onclick = "showPic("id${i}")">`
+        elemGridContainer.innerHTML += `<img src="./Pictures/black.jpg" class = 'grid-item' id = "id${i}" width=100 height=100 onclick = "showPic(this)" style="background-image:url(./${newArr[i]}) ;">`
     }
-}
+    newArr = shuffleArray(picArr)
+    for(let i = diffLevel; i < diffLevel*2; i++){
+        elemGridContainer.innerHTML += `<img src="./Pictures/black.jpg" class = 'grid-item' id = "id${i}" width=100 height=100 onclick = "showPic(this)" style="background-image:url(./${newArr[i-diffLevel]}) ;">`
+    }
 
 function showPic(x){
+    shownPics ++;
+    if(shownPics > 1){  
+        
+        let backgroundImageURL = getComputedStyle(x).backgroundImage; 
+        x.src = backgroundImageURL.slice(4, -1).replace(/"/g, "");
+        picId2 = x.id
+        picSRC2 = x.src
+        if(picSRC1 !== picSRC2){
+            
+            let elemNew = document.querySelector("#" + picId1);
+
+            setTimeout(function() {
+                x.src = "./Pictures/black.jpg"
+                elemNew.src = "./Pictures/black.jpg";
+                resetValues()
+            }, 2000);
+        }
+        else{
+            resetValues()
+        } 
+    }
+    else{   
+        let backgroundImageURL = getComputedStyle(x).backgroundImage; 
+        x.src = backgroundImageURL.slice(4, -1).replace(/"/g, "");
+        picSRC1 = x.src
+        picId1 = x.id
+
+    }
     
-    let backgroundImageURL = getComputedStyle(x).backgroundImage; 
-    x.src = backgroundImageURL.slice(4, -1).replace(/"/g, "");
+}
+
+function resetValues(){
+    picSRC1 = ''
+    picSRC2 = ''
+    picId1 = ''
+    picId2 = ''
+    shownPics = 0
 }
 
 
@@ -72,56 +113,6 @@ function showPic(x){
 
 
 
-
-
-// // for (let j = 0; j < 2; j++) {
-//     let arr = shuffleArray(boardArr)
-//     for (let i = 0; i < diffLevel; i++) {
-//         let gridItem = document.createElement("div");
-//         gridItem.classList.add("grid-item");
-//         gridItem.id = "grid-item-" + (i);
-//         let img = document.createElement("img");
-//         img.src = arr[i]; 
-//         img.width = 100
-//         img.height = 100
-//         gridItem.addEventListener("click", function() {
-//             gridItem.appendChild(img);
-            
-//             setTimeout(myFunction(gridItem.id), 3000);
-
-            
-//         });       
-//         gridContainer.appendChild(gridItem);
-//     }
-//     arr = shuffleArray(boardArr)
-//     for (let i = 0; i < diffLevel; i++) {
-//         let gridItem = document.createElement("div");
-//         gridItem.classList.add("grid-item");
-//         gridItem.id = "grid-item-" + (i + diffLevel);
-//         let img = document.createElement("img");
-//         img.src = arr[i]; 
-//         img.width = 100
-//         img.height = 100
-//         gridItem.addEventListener("click", function() {
-//             elemX = document.getElementById(this.id);
-//             gridItem.appendChild(img);
-            
-//         });       
-//         gridContainer.appendChild(gridItem);
-//     }
-// // }
-
-
-// let id1 = ''
-// let id2 = ''
-// let open = 0
-
-// function myFunction(x){
-//     elemX = document.getElementById(x);
-//     elemX.innerText = 'aaa'
-//     console.log('bbb')
-
-// }
 
 
 
