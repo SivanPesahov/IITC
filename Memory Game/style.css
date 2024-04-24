@@ -9,14 +9,12 @@
 }
 
 .grid-item {
-    border: 1px solid #ccc;
+    border: 1px solid brown;
     padding: 10px;
-    text-align: center;
     width: 100px; 
     height: 100px;
-    color: antiquewhite;
     background-image: url('./Pictures/black.jpg'); 
-    background-size: cover;
+    background-size:0%;
 }
 
 
