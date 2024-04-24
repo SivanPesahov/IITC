@@ -23,10 +23,12 @@ intervalId = setInterval(countSeconds, 1000);
 //----------------------------------------------------------------------
 
 let shownPics = 0
+let points = 0
 let picId1 = ''
 let picId2 = ''
 let picSRC1 = ''
 let picSRC2 = ''
+let arr = []
 
 
 let picArr = [
@@ -53,12 +55,17 @@ function shuffleArray(array) {
 }
 
     let newArr = shuffleArray(picArr)
+    
     for(let i = 0; i < diffLevel; i++){
-        elemGridContainer.innerHTML += `<img src="./Pictures/black.jpg" class = 'grid-item' id = "id${i}" width=100 height=100 onclick = "showPic(this)" style="background-image:url(./${newArr[i]}) ;">`
+        arr.push(newArr[i])
     }
-    newArr = shuffleArray(picArr)
+    
+    for(let i = 0; i < diffLevel; i++){
+        elemGridContainer.innerHTML += `<img src="./Pictures/black.jpg" class = 'grid-item' id = "id${i}" width=100 height=100 onclick = "showPic(this)" style="background-image:url(./${arr[i]}) ;">`
+    }
+    let secondArr = shuffleArray(arr)
     for(let i = diffLevel; i < diffLevel*2; i++){
-        elemGridContainer.innerHTML += `<img src="./Pictures/black.jpg" class = 'grid-item' id = "id${i}" width=100 height=100 onclick = "showPic(this)" style="background-image:url(./${newArr[i-diffLevel]}) ;">`
+        elemGridContainer.innerHTML += `<img src="./Pictures/black.jpg" class = 'grid-item' id = "id${i}" width=100 height=100 onclick = "showPic(this)" style="background-image:url(./${secondArr[i-diffLevel]}) ;">`
     }
 
 function showPic(x){
@@ -81,6 +88,8 @@ function showPic(x){
         }
         else{
             resetValues()
+            points += 1
+            checkForWin()
         } 
     }
     else{   
@@ -104,6 +113,27 @@ function resetValues(){
 
 
 
+
+//----------------------------------------------------------------------
+
+elemWinMessage = document.querySelector('#winID')
+
+function checkForWin(){
+    if(points == diffLevel){
+        elemWinMessage.innerText = 'You won!'
+    }
+}
+
+function restart(){
+    
+    location.reload();
+}
+
+function quit(){
+    playerName = ''
+    diffLevel = 0
+    window.location.href = 'home_page.html';
+}
 
 
 

@@ -142,3 +142,8 @@ header{
       background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
     }
   }
+
+  .down{
+    display: flex;
+    justify-content: space-between;
+  }
