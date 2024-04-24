@@ -8,12 +8,12 @@ elemHelloMessage.innerText = `Hi ${playerName}, ready to play?`
 let seconds = 0;
 let intervalId;
 const elemTime = document.querySelector('#time_counter')
+let counting = true
 
 function countSeconds() {
     seconds++; 
-    if (1 == 2) {
+    if (counting == false) {
         clearInterval(intervalId); 
-        console.log("Count stopped."); 
     }
     elemTime.innerText = `Time passed: ${seconds} seconds`
 }
@@ -111,9 +111,6 @@ function resetValues(){
 }
 
 
-
-
-
 //----------------------------------------------------------------------
 
 elemWinMessage = document.querySelector('#winID')
@@ -121,6 +118,7 @@ elemWinMessage = document.querySelector('#winID')
 function checkForWin(){
     if(points == diffLevel){
         elemWinMessage.innerText = 'You won!'
+        counting = false
     }
 }
 
