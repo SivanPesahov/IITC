@@ -29,6 +29,7 @@ let picId2 = ''
 let picSRC1 = ''
 let picSRC2 = ''
 let arr = []
+let historyArr = []
 
 
 let picArr = [
@@ -119,6 +120,8 @@ function checkForWin(){
     if(points == diffLevel){
         elemWinMessage.innerText = 'You won!'
         counting = false
+        // addToHistory()
+        // showHistory()
     }
 }
 
@@ -133,7 +136,41 @@ function quit(){
     window.location.href = 'home_page.html';
 }
 
+//----------------------------------------------------------------------
 
+const elemHistoryTable = document.querySelector('table')
+
+function showHistory(){
+    elemHistoryTable.innerHTML = "<tr><th>User name</th><th>Time</th></tr>"
+    
+    for (i of historyArr){
+        const elemRowInTable = `<tr><td> ${i.playerName} </td><td> ${i.seconds} </td></tr>`
+        elemHistoryTable.innerHTML += elemRowInTable
+    }
+}
+
+function addToHistory(){
+    let newOBJ = {playerName, seconds}
+    historyArr.push(newOBJ)
+    
+}
+
+// function addToHistory() {
+//     let newOBJ = { playerName, seconds };
+//     let historyArr = JSON.parse(localStorage.getItem('historyArr')) || [];
+//     historyArr.push(newOBJ);
+//     localStorage.setItem('historyArr', JSON.stringify(historyArr));
+// }
+
+// // Function to show history
+// function showHistory() {
+//     elemHistoryTable.innerHTML = "<tr><th>User name</th><th>Time</th></tr>";
+//     let historyArr = JSON.parse(localStorage.getItem('historyArr')) || [];
+//     for (let i of historyArr) {
+//         const elemRowInTable = `<tr><td>${i.playerName}</td><td>${i.seconds}</td></tr>`;
+//         elemHistoryTable.innerHTML += elemRowInTable;
+//     }
+// }
 
 
 

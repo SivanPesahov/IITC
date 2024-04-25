@@ -147,3 +147,27 @@ header{
     display: flex;
     justify-content: space-between;
   }
+
+  .history_table{
+    display: flex;
+    justify-content: center;
+  }
+
+  table {
+    margin-top: 20px;
+    border: 1px solid brown;
+    border-radius: 20px;
+    width: 50%;
+    border-collapse: collapse;
+    color: brown;
+  }
+  
+  tr:nth-child(even) {
+    background-color: brown;
+  }
+  
+  th , td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid brown;
+  }
