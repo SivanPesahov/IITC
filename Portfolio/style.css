@@ -27,6 +27,10 @@ nav{
     color: white;
     display: flex;
     justify-content: center;
+    position:fixed;
+    margin-top: -100px;
+    width: 100%;
+    
     
 }
 
@@ -69,7 +73,7 @@ nav a:hover{
     margin: 200px;
     padding: 100px;
     text-align: center;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px 0px rgb(0 0 0 / 40%), -10px -10px 0px rgb(255 114 114 / 80%);
     width: 1200px;
     align-items: center;
     text-align: center;
@@ -134,6 +138,10 @@ nav a:hover{
     font-size: x-large;
 }
 
+.ccc h4:hover{
+    
+}
+
 .bbc{
     margin-left: 20px;
     margin-bottom: 50px;
@@ -190,22 +198,26 @@ nav a:hover{
 }
 
 .qwe button{
-    border-radius: 4px;
-    background-color: #ADD8E6;
+    color: #1d3d5f;
+    border: 0;
+    border-radius: 5px;
+    background: lightblue;
+    width: 140px;
+    height: 40px;
+    margin-top: 30px;
+    margin-left: auto;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
     margin-bottom: 20px;
 }
 
-.contact_area h3{
-
-}
-
-footer{background-color: black;
-    padding: 40px;
-    display: flex;
-    justify-content: space-between;
+.qwe button:hover{
+    background-color: black;
     color: white;
-    
 }
+
 
 
 .upper_footer{
@@ -219,24 +231,37 @@ footer{background-color: black;
     
 }
 
-.sentence{
+/* .sentence{
     text-align: center;
     
+} */
+
+
+.contact_headline{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
 }
+
+.use_this_form{
+    display: flex;
+    justify-content: center;
+}
+
 
 .writing_area{
     display: flex;
 }
 
 .info{
-    margin-right: 60px;
+    margin-right: 20px;
 }
 .info input{
     margin-bottom: 20px;
 }
 
 .messageeee{
-    margin-left: 60px;
+    margin-left: 20px;
 
 }
 .messageeee input{
@@ -244,3 +269,26 @@ footer{background-color: black;
     width: 600px;
     margin-bottom: 50px;
 }
+
+.inside_footer{
+    
+    display: flex;
+    justify-content: center;
+}
+
+.inside_footer_buttons a:hover{
+    color: #38A5ED;
+
+}
+
+
+
+footer{background-color: black;
+    padding: 40px;
+    padding-inline: 260px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    
+}
+
