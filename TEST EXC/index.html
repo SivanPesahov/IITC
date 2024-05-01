@@ -74,14 +74,42 @@
 
         }
         
-        let objA = {description : 'salary 1' , amount : 7000}, objB;
-        objB = objA;
-        objA.amount++;
-        console.log(objA);       
-        console.log(objB);
-        objB.description = 'salary 2';
-        console.log(objA);       
-        console.log(objB);
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+        let randomNumber = getRandomNumber(1, 10);
+
+        let userGuessArr = []
+        while(userGuessArr.length < 6){
+            let x = prompt('Please enter a number: ')
+            if(!isNaN(x)){
+                userGuessArr.push(parseInt(x))
+            }
+            else{
+                alert('Please enter a number and try again!')
+            }
+        }
+
+
+        let compArr = []
+        while (compArr.length < 6){
+            randomNumber = getRandomNumber(0,46)
+            if(!compArr.includes(randomNumber)){
+                compArr.push(randomNumber)
+            }
+        }
+
+
+
+        let sum = 0
+        for(let i = 0; i < userGuessArr.length; i++){
+            if(compArr.includes(userGuessArr[i])){
+                sum ++
+
+            }
+        }
+        alert(`You inserted ${sum} correct guesses`)
+
 
 
     </script>
