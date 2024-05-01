@@ -71,7 +71,7 @@ nav a:hover{
 .about_me{
     background-color: white;
     margin: 200px;
-    padding: 100px;
+    padding-block: 30px;
     text-align: center;
     box-shadow: 10px 10px 0px rgb(0 0 0 / 40%), -10px -10px 0px rgb(255 114 114 / 80%);
     width: 1200px;
@@ -138,9 +138,7 @@ nav a:hover{
     font-size: x-large;
 }
 
-.ccc h4:hover{
-    
-}
+
 
 .bbc{
     margin-left: 20px;
@@ -227,14 +225,9 @@ nav a:hover{
     color: white;
 }
 
-.contact button{
-    
-}
 
-/* .sentence{
-    text-align: center;
-    
-} */
+
+
 
 
 .contact_headline{
@@ -258,6 +251,7 @@ nav a:hover{
 }
 .info input{
     margin-bottom: 20px;
+    color: black;
 }
 
 .messageeee{
@@ -268,12 +262,18 @@ nav a:hover{
     height: 260px;
     width: 600px;
     margin-bottom: 50px;
+    color: black;
+
 }
 
 .inside_footer{
     
     display: flex;
     justify-content: center;
+}
+
+.inside_footer_buttons{
+    display: flex;
 }
 
 .inside_footer_buttons a:hover{
