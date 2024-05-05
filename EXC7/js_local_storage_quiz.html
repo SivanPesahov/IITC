@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Quiz</h1>
+    <ul>
+    </ul>
+
+    <script>
+
+        let questions = [
+        {
+            question: "Who was the first President of the United States?",
+            answers: [
+                "Thomas Jefferson",
+                "George Washington",
+                "Abraham Lincoln",
+                "John Adams"
+            ]
+        },
+        {
+            question: "In which year was the Declaration of Independence signed?",
+            answers: [
+                "1776",
+                "1789",
+                "1792",
+                "1801"
+            ]
+        },
+        {
+            question: "What is the capital of the United States?",
+            answers: [
+                "Washington, D.C.",
+                "New York City",
+                "Los Angeles",
+                "Chicago"
+            ]
+        },
+        {
+            question: "Which American inventor is famous for inventing the light bulb?",
+            answers: [
+                "Thomas Edison",
+                "Alexander Graham Bell",
+                "Nikola Tesla",
+                "Albert Einstein"
+            ]
+        },
+        {
+            question: "What is the national bird of the United States?",
+            answers: [
+                "Bald eagle",
+                "Peregrine falcon",
+                "American robin",
+                "Snowy owl"
+            ]
+        },
+        {
+            question: "Which river is the longest river in the United States?",
+            answers: [
+                "Mississippi River",
+                "Missouri River",
+                "Colorado River",
+                "Columbia River"
+            ]
+        },
+        {
+            question: "Which state is known as the 'Sunshine State'?",
+            answers: [
+                "Florida",
+                "California",
+                "Texas",
+                "Arizona"
+            ]
+        },
+        {
+            question: "Who wrote the famous novel 'To Kill a Mockingbird'?",
+            answers: [
+                "Harper Lee",
+                "John Steinbeck",
+                "Ernest Hemingway",
+                "Mark Twain"
+            ]
+        },
+        {
+            question: "What is the tallest mountain peak in North America?",
+            answers: [
+                "Denali (Mount McKinley)",
+                "Mount Rainier",
+                "Mount Whitney",
+                "Mount Shasta"
+            ]
+        },
+        {
+            question: "Which American holiday is celebrated on July 4th?",
+            answers: [
+                "Independence Day",
+                "Memorial Day",
+                "Labor Day",
+                "Veterans Day"
+            ]
+        }]
+        
+        let correctAnswers = ["George Washington",
+        "1776",
+        "Washington, D.C.",
+        "Thomas Edison",
+        "Bald eagle",
+        "Mississippi River",
+        "Florida",
+        "Harper Lee",
+        "Denali (Mount McKinley)",
+        "Independence Day"]
+        
+        let userAnswers = []
+        
+        let userAnswersTemp = JSON.parse(localStorage.getItem('userAnswer_LocalStorage'))
+
+        const elemList = document.querySelector('ul')
+        
+        let score = 0
+        
+        for(i of questions){
+            elemList.innerHTML += `<li>${i.question}</li>`
+            for(j of i.answers){
+                elemList.innerHTML += `<li onclick="addAnswerToUserAnswers(this)">${j}</li>`
+            }
+        }
+        
+        if(!userAnswersTemp.length == 0){
+            for(let i of userAnswersTemp){
+                userAnswers.push(i)
+            }
+        }
+        
+        console.log(userAnswers)
+
+
+        if(userAnswers.length == 10){
+            elemList.innerHTML = ''
+            for(i of questions){
+                elemList.innerHTML += `<li>${i.question}</li>`
+                for(j of i.answers){
+                    if(correctAnswers.includes(j)){
+                        elemList.innerHTML += `<li style="color: green;">${j}</li>`
+                    }
+                    else{
+                        elemList.innerHTML += `<li style="color: red;">${j}</li>`
+                    }
+                }
+            }
+        }
+
+        function addAnswerToUserAnswers(x){
+            if(!userAnswers.includes(x.innerText)){
+                userAnswers.push(x.innerText)
+                localStorage.setItem('userAnswer_LocalStorage', JSON.stringify(userAnswers))
+                if(correctAnswers.includes(x.innerText)){
+                    score ++
+                }
+            }
+
+            if(userAnswers.length == 10){
+                elemList.innerHTML = ''
+                for(i of questions){
+                    elemList.innerHTML += `<li>${i.question}</li>`
+                    for(j of i.answers){
+                        if(correctAnswers.includes(j)){
+                            elemList.innerHTML += `<li style="color: green;">${j}</li>`
+                        }
+                        else{
+                            elemList.innerHTML += `<li style="color: red;">${j}</li>`
+                        }
+                    }
+                }
+                alert(`your score is: ${score}`)
+            }
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    </script>
+</body>
+</html>

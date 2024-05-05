@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <button onclick="setItem()">SET</button>
+    <button onclick="getItem()">GET</button>
+    <button onclick="deleteItem()">DELETE</button> -->
+    <button onclick="addOne()">click to add</button>
+    <p></p>
+
+
+    <script>
+        let x = 'hello'
+
+        function setItem(){
+            localStorage.setItem('x', x);
+        }
+
+        function getItem(){
+            let wordHello = localStorage.getItem('x');
+            console.log(wordHello)
+        }
+
+        function deleteItem(){
+            localStorage.removeItem('x')
+        }
+
+//----------------------------------------------------------------
+
+        const key = 'counter-key'
+        const counter = localStorage.getItem(key)
+        let count = counter == null ? 0 : Number(counter)
+
+        function addOne(){
+            count ++ 
+            localStorage.setItem(key,count)
+            document.querySelector('p').innerText = count
+        }
+
+
+
+        //let count = 0
+        //elemCountParagraph = document.querySelector('#amountID')
+        
+        //if(localStorage.getItem('counter') != "0")
+        //{
+            //count = parseInt(localStorage.getItem('counter'))
+        //}
+        //else{
+            //localStorage.setItem('counter', count)
+        //}
+        
+        //function addOne(){
+            //count ++
+            //localStorage.setItem('counter', count)
+        //}
+
+        //function show(){
+            //x = localStorage.getItem('counter')
+            //elemCountParagraph.innerText = `${x}`
+        //}
+
+
+
+
+    </script>
+</body>
+</html>

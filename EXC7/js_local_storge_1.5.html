@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="addOne()">Increment</button>
+    <button onclick="addOne_1()">Increment</button>
+    <p id="id1"></p>
+    <p id="id2"></p>
+
+    <script>
+
+        const key = 'counter-key'
+        const counter = localStorage.getItem(key)
+        let count = counter == null ? 0 : Number(counter)
+
+        function addOne(){
+            count ++ 
+            localStorage.setItem(key,count)
+            document.querySelector('#id1').innerText = count
+        }
+
+
+        const key2 = 'counter-key2'
+        const counter2 = localStorage.getItem(key2)
+        let count2 = counter2 == null ? 0 : Number(counter2)
+
+        function addOne_1(){
+            count2 ++ 
+            localStorage.setItem(key2,count2)
+            document.querySelector('#id2').innerText = count2
+        }
+
+    </script>
+</body>
+</html>
