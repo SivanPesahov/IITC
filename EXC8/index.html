@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <h1>Names:</h1>
+    <ul></ul>
+
+
+
+
+    <script>
+        
+        function checkForEven(num){
+            return num % 2 == 0
+        }
+
+        function checkForEvenNumberInArr(arr){
+            const x = arr.find(checkForEven)
+            //const x = arr.find(num => num % 2 == 0)
+            return x != undefined
+        }
+        
+        let arr1 = [10,5,1,40]
+        console.log(checkForEvenNumberInArr(arr1))
+
+        // -----------------------------------------------------------
+
+        function AddToNewArr(num){
+            return num % 2 === 0
+        }
+
+        function createAndAddToNewArr(arr){ 
+            return arr.filter(AddToNewArr)
+            //return arr.filter(num => num % 2 == 0)
+        }
+
+        let arr2 = [1,2,3,4,5,6,7,8]
+        console.log(createAndAddToNewArr(arr2))
+        
+        // -----------------------------------------------------------
+
+        const namesArr = ['aaa','bbb','ccc','ddd','eee']
+        elemList = document.querySelector('ul')
+        let str = ''
+
+        function insertNames(arr){
+            return arr.map(name => `<li>${name}</li>`)
+        }
+
+        let newArr = insertNames(namesArr)
+        elemList.innerHTML += newArr.join('')
+
+
+    </script>
+</body>
+</html>

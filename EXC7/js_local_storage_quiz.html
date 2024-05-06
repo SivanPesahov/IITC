@@ -124,10 +124,18 @@
         
         let score = 0
         
-        for(i of questions){
-            elemList.innerHTML += `<li>${i.question}</li>`
-            for(j of i.answers){
-                elemList.innerHTML += `<li onclick="addAnswerToUserAnswers(this)">${j}</li>`
+        
+        //for(let i = 0; i < questions.length; i++){
+            //elemList.innerHTML += `<li>${questions[i].question}</li>`
+            //for(let j = 0; j < questions[i].answers.length; j++){
+                //elemList.innerHTML += `<li onclick="addAnswerToUserAnswers(this, ${i})">${questions[i].answers[j]}</li>`
+            //}
+        //}
+                
+        for(let [index, value] of questions.entries()){
+            elemList.innerHTML += `<li>${value.question}</li>`
+            for(j of value.answers){
+                elemList.innerHTML += `<li onclick="addAnswerToUserAnswers(this, ${index})">${j}</li>`
             }
         }
         
@@ -139,29 +147,12 @@
         
         console.log(userAnswers)
 
-
-        if(userAnswers.length == 10){
-            elemList.innerHTML = ''
-            for(i of questions){
-                elemList.innerHTML += `<li>${i.question}</li>`
-                for(j of i.answers){
-                    if(correctAnswers.includes(j)){
-                        elemList.innerHTML += `<li style="color: green;">${j}</li>`
-                    }
-                    else{
-                        elemList.innerHTML += `<li style="color: red;">${j}</li>`
-                    }
-                }
-            }
-        }
-
-        function addAnswerToUserAnswers(x){
-            if(!userAnswers.includes(x.innerText)){
-                userAnswers.push(x.innerText)
-                localStorage.setItem('userAnswer_LocalStorage', JSON.stringify(userAnswers))
-                if(correctAnswers.includes(x.innerText)){
-                    score ++
-                }
+        function addAnswerToUserAnswers(x,index){
+            userAnswers[index] = x.innerText
+            localStorage.setItem('userAnswer_LocalStorage', JSON.stringify(userAnswers))
+            
+            if(correctAnswers.includes(x.innerText)){
+                score ++
             }
 
             if(userAnswers.length == 10){
@@ -169,7 +160,7 @@
                 for(i of questions){
                     elemList.innerHTML += `<li>${i.question}</li>`
                     for(j of i.answers){
-                        if(correctAnswers.includes(j)){
+                        if(correctAnswers.includes(j) && (userAnswers.includes(j))){
                             elemList.innerHTML += `<li style="color: green;">${j}</li>`
                         }
                         else{
@@ -178,26 +169,8 @@
                     }
                 }
                 alert(`your score is: ${score}`)
-            }
-            
+            }  
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 
     </script>
 </body>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const namesArr = ['alice','bob','charlie','david']
+        elemList = document.querySelector('ul')
+        let str = ''
+
+        function insertNames(arr){
+            return arr.map(name => `<li>${name}</li>`)
+        }
+
+        let newArr = insertNames(namesArr)
+        elemList.innerHTML += newArr.join('')
+    </script>
+</body>
+</html>
