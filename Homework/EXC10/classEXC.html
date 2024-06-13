@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <th>id</th>
+            <th>user name</th>
+            <th>title</th>
+            <th>body</th>
+        </tr>
+    </table>
+
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    
+
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <script>
+
+        const elemTable = document.querySelector('table')
+        const arr = [2,11,34]
+
+        arr.forEach((postID) => {
+            const url1 = `https://jsonplaceholder.typicode.com/posts/${postID}`
+            axios.get(url1)
+            .then(async function (response) {
+                
+                const postData = response.data    
+                const url2 = `https://jsonplaceholder.typicode.com/users/${postData.userId}`
+                const userName = await returnUserName(url2)
+                    
+                elemTable.innerHTML += `<tr>
+                        <td>${postData.id}</td>
+                        <td>${userName}</td>
+                        <td>${postData.title}</td>
+                        <td>${postData.body}</td>
+                    </tr>`
+            })
+
+            .catch(function (error) {
+                console.log(error)
+            })
+        })
+
+        async function returnUserName(url){
+            let x
+            await axios.get(url)
+                .then(function (response) {
+                    x = response.data.username
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+            return x   
+        }
+
+
+
+
+        
+
+        /*const url1 = 'https://jsonplaceholder.typicode.com/posts'
+        const url2 = 'https://jsonplaceholder.typicode.com/comments'
+        const url3 = 'https://jsonplaceholder.typicode.com/users'
+        elemP1 = document.querySelector('#p1')
+        elemP2 = document.querySelector('#p2')
+        elemP3 = document.querySelector('#p3')
+
+        function getPosts(){
+            return axios.get(url1)
+            .then(function (response) {
+                elemP1.innerText = response.data.length 
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+        }
+        
+        function getComents(){
+            return axios.get(url2)
+            .then(function (response) {
+                elemP2.innerText = response.data.length 
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+        }
+        
+        function getUsers(){
+            return axios.get(url3)
+            .then(function (response) {
+                elemP3.innerText = response.data.length 
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+        }
+        
+        /*const task1 = getPosts()
+        const task2 = getComents()
+        const task3 = getUsers()
+
+        Promise.all([task1, task2, task3])
+            .then((res) => {console.log(res)})
+            .catch((error) => {console.log(error)})
+
+        const request1 = axios.get(url1)
+        const request2 = axios.get(url2)
+        const request3 = axios.get(url3)
+
+        Promise.all([request1, request2, request3])
+            .then((responses) => {
+                const [response1, response2, response3] = responses
+                elemP1.innerText = response1.data.length 
+                elemP2.innerText = response2.data.length 
+                elemP3.innerText = response3.data.length 
+            })
+            .catch(function (error) {
+                console.log(error)
+            })*/
+        
+
+    </script>
+</body>
+</html>

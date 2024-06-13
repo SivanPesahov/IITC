@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p></p>
+
+    <script>
+        
+        const p = document.querySelector('p')
+
+        function getUser(){
+            return new Promise((resolve) => {
+                  setTimeout(() => {
+                    resolve('Jhon Doe')
+                  }, 1000)
+              })
+        }
+
+        function presentName(){
+            return new Promise((resolve) =>{
+                setTimeout(() => {
+                    resolve('Jhon Doe')
+                  }, 1000)
+            })
+        }
+
+        /*getUser()
+            .then((name) => {let obj = {name : name, id : 1}; 
+                return presentName()})
+            .then((name) => {p.innerText = name})*/
+        
+        
+        
+        function fetchUser(){
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                  resolve({name : 'Jhon Doe', id : 1})
+                }, 1000)
+            })
+        }
+
+        function fetchPosts(){
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                  resolve([1,2])
+                }, 2000)
+            })
+        }
+
+        const task1 = fetchUser()
+        const task2 = fetchPosts()
+
+        Promise.all([task1, task2])
+            .then((res) => {console.log(res)})
+            .catch((error) => {console.log(error)})
+
+
+    </script>
+</body>
+</html>

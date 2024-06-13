@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="id1">
+        <span>aaa</span>
+        <span>bbb</span>
+        <span>ccc</span>
+    </div>
+
+    <div id = "id2" style="height: 300px; width: 300px; background-color: red;"></div>
+
+    </>
+    
+    <script>
+
+        let ElementsArr = document.querySelectorAll('#id1 span') // selects the html element and create an nodelist whose cells are 
+        //elemSpan = document.queryselector('span')
+        console.log(ElementsArr)
+        
+        // ------------------------------------------------------------------
+
+        ElementsArr.forEach(function(htmlElement) {
+            htmlElement.addEventListener('click', function(event){console.log(event.target.innerText)})
+        }) 
+        // the function gets 'event' (the event that happend with the 'click' of the mouse on the element), takes its 'target',
+        // (span element) and prints its innerText
+
+        // ------------------------------------------------------------------
+
+        let startTime
+        let endTime
+        let elemBox = document.querySelector('#id2')
+        elemBox.addEventListener('mousedown', function(){startTime = new Date().getTime()})
+        elemBox.addEventListener('mouseup', function(){endTime = new Date().getTime(); 
+            console.log((endTime-startTime)/1000)})
+
+
+
+
+
+    </script>
+
+</body>
+</html>
