@@ -1,51 +1,69 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useRef } from "react";
 
 
 function TodoItem ({todoItem, settodoList, todoList}){
 
     const [editTodo, setEditTodo] = useState(todoItem.title);
+    const URL = 'http://localhost:8001/initialTodos/'
+    const changingBar = useRef(null)
+
   
-    function lineThroughTodo(taskID){
-      const newList = todoList.map((todoItem) =>{
-        if (todoItem.id === taskID){
-          let boolianToReverse = todoItem.isComplete
-          return {
-            ...todoItem, 
-            isComplete : !boolianToReverse}
+    async function deleteTodo(todoID){
+        try{
+            await axios.delete(URL + todoID)
+            settodoList((prevTodos) => {
+                return prevTodos.filter((todo) => todo.id !== todoID);})
+        } catch(err){
+            console.log(err);
+            alert("Cant remove!");
         }
-        return todoItem
-      })
-      settodoList(newList)
+    }
+
+    async function lineThroughTodo(todoToUpdate){
+        try {
+            const { data : updatedTodo } = await axios.patch(URL + todoToUpdate.id, {isComplete: !todoToUpdate.isComplete})
+            settodoList((prevTodos) => {
+                return prevTodos.map((todo) => {
+                    if(todo.id === todoToUpdate.id){
+                        return updatedTodo
+                    }
+                    return todo
+                })
+            })
+        }catch (err){
+            console.log(err);
+            alert("Cant Toggle!");
+        }
     }
   
-    function deleteTodo(todoID){
-      settodoList(todoList.filter((todoItem) => todoItem.id !== todoID));
-    }
-  
-    function updateTodo(todoID){
-      const newTodos = todoList.map((todoItem) => {
-        if (todoItem.id === todoID) {
-          return {
-            ...todoItem,
-            title: editTodo
-          };
+    async function updateTodo(todoItemToChange){
+        try{
+            const {data : updatedTodo} = await axios.patch(URL + todoItemToChange.id, {title: changingBar.current.value})
+            settodoList((prevTodos) => {
+                return prevTodos.map((todo) => {
+                    if(todo.id === todoItemToChange.id){
+                        return updatedTodo
+                    }
+                    return todo
+                })
+            })
+        }catch (err){
+            console.log(err);
+            alert("Cant edit!");
         }
-        return todoItem;
-      });
-  
-      settodoList(newTodos);
     }
   
     return (
       <>
         <li key={todoItem.id} className="todo-item">
-            <input type="checkbox" checked={todoItem.isComplete} onChange={() => lineThroughTodo(todoItem.id)}/>
+            <input type="checkbox" checked={todoItem.isComplete} onChange={() => lineThroughTodo(todoItem)}/>
             <div className="task-container">
               <label style={{ textDecoration: todoItem.isComplete ? 'line-through' : 'none' }}>{todoItem.title}</label>
-              <input type="text" id={todoItem.id} onChange={(ev) => setEditTodo(ev.target.value)} />
+              <input type="text" placeholder="edit task here" id={todoItem.id} ref={changingBar} onChange={(ev) => setEditTodo(ev.target.value)} />
             </div>
             <div className="btn-container">
-              <button onClick={() => updateTodo(todoItem.id)}>Update Task</button>
+              <button onClick={() => updateTodo(todoItem)}>Update Task</button>
               <button onClick={() => deleteTodo(todoItem.id)}>Delete Task</button>
             </div>
         </li>

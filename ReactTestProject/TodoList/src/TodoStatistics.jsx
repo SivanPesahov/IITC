@@ -20,7 +20,7 @@ function TodoStatistics(props){
       <>
         <h2 className="message">Total number of tasks: {props.todoList.length}</h2>
         <h2 className="message">Total number of completed tasks: {returnCompletedTodos()}</h2>
-        <h2 className="message">Total number of uncompleted tasks: {returnUncompletedTodos()}</h2>
+        <h2 className="message">Total number of uncompleted tasks: {props.todoList.length - returnCompletedTodos()}</h2>
       </>
     )
     

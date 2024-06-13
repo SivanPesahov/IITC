@@ -1,45 +1,37 @@
 import React, { useEffect, useRef } from "react";
+import axios from "axios";
 
-function AddTodoForm({ todoList, settodoList, newTodo, setNewTodo }){
+function AddTodoForm(props){
 
-    function makeId(length) {
-        let result = "";
-        const characters =
-          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        const charactersLength = characters.length;
-        for (let i = 0; i < length; i++) {
-          result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        }
-        return result;
-      }
-
-    function createTodo(ev){
-      ev.preventDefault();
-  
-      const newTodoToAdd = {
-        id: makeId(todoList.length),
-        title: newTodo,
-        isComplete: false
-      };
-  
-      const newTodos = [...todoList];
-      newTodos.push(newTodoToAdd);
-      settodoList(newTodos);
-  
-    }
-  
     const addingBar = useRef(null)
-    useEffect(() => {addingBar.current.focus()}, [todoList])
-    useEffect(() => {addingBar.current.value = ''}, [todoList])
+    const URL = 'http://localhost:8001/initialTodos/'
+
+    async function createTodo(ev){
+        ev.preventDefault();
+        try{
+            const { data: newTodo } = await axios.post(URL, {
+                title: addingBar.current.value,
+                isComplete: false,
+                })
+            props.settodoList((prev) => {return [...prev, newTodo]})
+            addingBar.current.value = ''
+        }catch (err) {
+            console.log(err);
+            alert("Cant Create!");
+            }
+    }
+
+    useEffect(() => {addingBar.current.focus()}, [props.todoList])
 
     return (
       <>
-      <form className="add-form" onSubmit={createTodo}>
+      <form className="add-form" onSubmit={createTodo} >
           <input
             type="text"
-            value={newTodo}
-            onChange={(ev) => setNewTodo(ev.target.value)}
+            value={props.newTodo}
+            onChange={(ev) => props.setNewTodo(ev.target.value)}
             ref={addingBar}
+            placeholder="add new task here"
           />
           <button>Add</button>
         </form>

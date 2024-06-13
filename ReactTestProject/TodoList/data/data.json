@@ -1,0 +1,39 @@
+{
+  "initialTodos": [
+    {
+      "id": "6",
+      "title": "Create Portfolio Website",
+      "isComplete": true
+    },
+    {
+      "id": "7",
+      "title": "Learn TypeScript",
+      "isComplete": true
+    },
+    {
+      "id": "8",
+      "title": "Refactor Codebase",
+      "isComplete": true
+    },
+    {
+      "id": "9",
+      "title": "Optimize Performance",
+      "isComplete": false
+    },
+    {
+      "id": "10",
+      "title": "Deploy to Production",
+      "isComplete": true
+    },
+    {
+      "id": "5da5",
+      "title": "bench 100",
+      "isComplete": false
+    },
+    {
+      "id": "520e",
+      "title": "efefef",
+      "isComplete": false
+    }
+  ]
+}

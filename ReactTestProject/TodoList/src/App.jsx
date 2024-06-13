@@ -1,46 +1,54 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import TodoList from "./TodoList";
 import TodoStatistics from "./TodoStatistics";
 import AddTodoForm from "./AddTodoForm";
-
-const initialTodos = [
-  { id: '1', title: 'Learn React', isComplete: false },
-  { id: '2', title: 'Build a Todo App', isComplete: false },
-  { id: '3', title: 'Read JavaScript Documentation', isComplete: true },
-  { id: '4', title: 'Write Unit Tests', isComplete: false },
-  { id: '5', title: 'Implement Context', isComplete: true },
-  { id: '6', title: 'Create Portfolio Website', isComplete: false },
-  { id: '7', title: 'Learn TypeScript', isComplete: false },
-  { id: '8', title: 'Refactor Codebase', isComplete: true },
-  { id: '9', title: 'Optimize Performance', isComplete: false },
-  { id: '10', title: 'Deploy to Production', isComplete: true }
-
-];
-
+import Filter from "./Filter";
+import axios from "axios";
 
 function App() {
 
-  const [todoList, settodoList] = useState(initialTodos);
-  const [newTodo, setNewTodo] = useState("");
-  
+  const URL = 'http://localhost:8001/initialTodos/'
 
-  function checkForAnyAvailableTodos(){
-    if(todoList.length === 0){
-      return "No todos available"
+  const [todoList, settodoList] = useState([]);
+  const [newTodo, setNewTodo] = useState("");
+  const [query, setQuery] = useState("")
+  
+  useEffect(() => {async function getTodoList(){
+    try{
+      const { data } = await axios.get(URL)
+      settodoList(data)
+    } catch (err){
+      console.log('error');
     }
   }
+  getTodoList()
+}, [])
 
-  useEffect(() => {console.log('hello')}, [])
-  useEffect(() => {console.log(todoList)}, [todoList])
+  const filterTodos = useMemo(() => {return todoList.filter((todo) => {
+    return todo.title.toLowerCase().includes(query.toLowerCase())
+    })}, [query, todoList])
+
+  function setVariable(func, var1, var2){
+    func((arr) => {
+        return arr.map((todo) => {
+            if(todo.id === var1.id){
+                return var2
+            }
+            return todo
+        })
+    })
+  }
 
   return (
     <main>
       <h1 className="main-title">Todo List</h1>
-      <h2 className="message">{checkForAnyAvailableTodos()}</h2>
+      <h2 className="message">{todoList.length === 0 ? 'no tasks available' : ''}</h2>
 
-      <AddTodoForm todoList={todoList} settodoList={settodoList} newTodo={newTodo} setNewTodo={setNewTodo} />
+      <AddTodoForm todoList={todoList} settodoList={settodoList} newTodo={newTodo} setNewTodo={setNewTodo} setVariable = {setVariable}/>
 
-      <TodoList todoList={todoList} settodoList={settodoList} />
+      <Filter filterTodos={filterTodos} query = {query} setQuery = {setQuery} setVariable ={setVariable}/>
+
+      <TodoList todoList={todoList} settodoList={settodoList} filterTodos={filterTodos} setVariable ={setVariable}/>
 
       <TodoStatistics todoList={todoList}/>
 
