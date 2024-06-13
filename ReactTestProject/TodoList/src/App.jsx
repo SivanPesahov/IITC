@@ -12,6 +12,8 @@ function App() {
   const [todoList, settodoList] = useState([]);
   const [newTodo, setNewTodo] = useState("");
   const [query, setQuery] = useState("")
+  const [toggle, setToggle] = useState('all')
+  
   
   useEffect(() => {async function getTodoList(){
     try{
@@ -25,30 +27,30 @@ function App() {
 }, [])
 
   const filterTodos = useMemo(() => {return todoList.filter((todo) => {
-    return todo.title.toLowerCase().includes(query.toLowerCase())
-    })}, [query, todoList])
-
-  function setVariable(func, var1, var2){
-    func((arr) => {
-        return arr.map((todo) => {
-            if(todo.id === var1.id){
-                return var2
-            }
-            return todo
-        })
-    })
-  }
-
+      if (toggle === "true") {
+        return !todo.isComplete && todo.title.toLowerCase().includes(query.toLowerCase());
+      } else if (toggle === "false") {
+        return todo.isComplete && todo.title.toLowerCase().includes(query.toLowerCase());
+      } else {
+        return todo.title.toLowerCase().includes(query.toLowerCase());
+      }
+    });
+  }, [query, todoList, toggle]);
+  
+  const handleFilterChange = (event) => {
+    setToggle(event.target.value);
+  };
+  
   return (
     <main>
       <h1 className="main-title">Todo List</h1>
       <h2 className="message">{todoList.length === 0 ? 'no tasks available' : ''}</h2>
 
-      <AddTodoForm todoList={todoList} settodoList={settodoList} newTodo={newTodo} setNewTodo={setNewTodo} setVariable = {setVariable}/>
+      <AddTodoForm todoList={todoList} settodoList={settodoList} newTodo={newTodo} setNewTodo={setNewTodo} />
 
-      <Filter filterTodos={filterTodos} query = {query} setQuery = {setQuery} setVariable ={setVariable}/>
+      <Filter filterTodos={filterTodos} query = {query} setQuery = {setQuery} handleFilterChange={handleFilterChange}/>
 
-      <TodoList todoList={todoList} settodoList={settodoList} filterTodos={filterTodos} setVariable ={setVariable}/>
+      <TodoList todoList={todoList} settodoList={settodoList} filterTodos={filterTodos} />
 
       <TodoStatistics todoList={todoList}/>
 
