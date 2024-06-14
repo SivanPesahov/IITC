@@ -31,11 +31,18 @@ function App() {
         return !todo.isComplete && todo.title.toLowerCase().includes(query.toLowerCase());
       } else if (toggle === "false") {
         return todo.isComplete && todo.title.toLowerCase().includes(query.toLowerCase());
+      } else if (toggle === "alphabetical") {getAlphabeticalTodos();
+        return todo.title.toLowerCase().includes(query.toLowerCase());
       } else {
         return todo.title.toLowerCase().includes(query.toLowerCase());
       }
     });
   }, [query, todoList, toggle]);
+
+  function getAlphabeticalTodos(){
+    const AlphabeticalTodos = todoList.sort((a, b) => a.title.localeCompare(b.title)); 
+    settodoList(AlphabeticalTodos)
+  }
   
   const handleFilterChange = (event) => {
     setToggle(event.target.value);

@@ -6,6 +6,7 @@ function Filter(props){
       <input type="search" placeholder="search here for a task" value={props.query} onChange={(ev) => props.setQuery(ev.target.value)}/>
       <select onChange={props.handleFilterChange}>
         <option value="all">Present all</option>
+        <option value="alphabetical">Present by alphabetical order</option>
         <option value="true">Present active</option>
         <option value="false">Present done</option>
       </select>
