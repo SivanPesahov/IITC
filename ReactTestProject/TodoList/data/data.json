@@ -18,7 +18,7 @@
     {
       "id": "9",
       "title": "Optimize Performance",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": "10",
@@ -43,7 +43,7 @@
     {
       "id": "52e2",
       "title": "hello2",
-      "isComplete": false
+      "isComplete": true
     }
   ]
 }
