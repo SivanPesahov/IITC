@@ -23,11 +23,11 @@
     {
       "id": "10",
       "title": "Deploy to Production",
-      "isComplete": true
+      "isComplete": false
     },
     {
       "id": "5da5",
-      "title": "bench 100",
+      "title": "bench 100kg",
       "isComplete": true
     },
     {
@@ -38,15 +38,15 @@
     {
       "id": "025d",
       "title": "abc",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": "52e2",
       "title": "hello2",
-      "isComplete": true
+      "isComplete": false
     },
     {
-      "id": "6718",
+      "id": "01a5",
       "title": "test",
       "isComplete": false
     }

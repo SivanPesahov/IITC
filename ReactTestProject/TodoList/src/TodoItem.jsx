@@ -57,7 +57,7 @@ function TodoItem ({todoItem, settodoList, todoList}){
     return (
       <>
         <li key={todoItem.id} className="todo-item">
-            <input type="checkbox" checked={todoItem.isComplete} onChange={() => lineThroughTodo(todoItem)}/>
+            <input className="check-box" type="checkbox" checked={todoItem.isComplete} onChange={() => lineThroughTodo(todoItem)}/>
             <div className="task-container">
               <label style={{ textDecoration: todoItem.isComplete ? 'line-through' : 'none' }}>{todoItem.title}</label>
               <input type="text" placeholder="edit task here" id={todoItem.id} ref={changingBar} onChange={(ev) => setEditTodo(ev.target.value)} />

@@ -10,6 +10,7 @@ function App() {
   const URL = 'http://localhost:8001/initialTodos/'
 
   const [todoList, settodoList] = useState([]);
+
   const [newTodo, setNewTodo] = useState("");
   const [query, setQuery] = useState("")
   const [toggle, setToggle] = useState('all')
@@ -50,12 +51,18 @@ function App() {
   
   return (
     <main>
-      <h1 className="main-title">Todo List</h1>
+
+      <header>
+
+        <h1 className="main-title">Todo List</h1>
+
+        <AddTodoForm todoList={todoList} settodoList={settodoList} newTodo={newTodo} setNewTodo={setNewTodo} />
+
+        <Filter filterTodos={filterTodos} query = {query} setQuery = {setQuery} handleFilterChange={handleFilterChange}/>
+
+      </header>
+
       <h2 className="message">{todoList.length === 0 ? 'no tasks available' : ''}</h2>
-
-      <AddTodoForm todoList={todoList} settodoList={settodoList} newTodo={newTodo} setNewTodo={setNewTodo} />
-
-      <Filter query = {query} setQuery = {setQuery} handleFilterChange={handleFilterChange}/>
 
       <TodoList todoList={todoList} settodoList={settodoList} filterTodos={filterTodos} />
 
