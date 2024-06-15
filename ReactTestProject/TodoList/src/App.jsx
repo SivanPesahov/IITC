@@ -10,22 +10,21 @@ function App() {
   const URL = 'http://localhost:8001/initialTodos/'
 
   const [todoList, settodoList] = useState([]);
-
   const [newTodo, setNewTodo] = useState("");
   const [query, setQuery] = useState("")
   const [toggle, setToggle] = useState('all')
   
   
   useEffect(() => {async function getTodoList(){
-    try{
-      const { data } = await axios.get(URL)
-      settodoList(data)
-    } catch (err){
-      console.log('error');
+      try{
+        const { data } = await axios.get(URL)
+        settodoList(data)
+      } catch (err){
+        console.log('error');
+      }
     }
-  }
-  getTodoList()
-}, [])
+    getTodoList()
+  }, [])
 
   const filterTodos = useMemo(() => {return todoList.filter((todo) => {
       if (toggle === "true") {
