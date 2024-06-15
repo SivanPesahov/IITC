@@ -19,7 +19,6 @@ function App() {
     try{
       const { data } = await axios.get(URL)
       settodoList(data)
-      settodoListOriginal(data)
     } catch (err){
       console.log('error');
     }
