@@ -55,7 +55,7 @@ function App() {
 
       <AddTodoForm todoList={todoList} settodoList={settodoList} newTodo={newTodo} setNewTodo={setNewTodo} />
 
-      <Filter filterTodos={filterTodos} query = {query} setQuery = {setQuery} handleFilterChange={handleFilterChange}/>
+      <Filter query = {query} setQuery = {setQuery} handleFilterChange={handleFilterChange}/>
 
       <TodoList todoList={todoList} settodoList={settodoList} filterTodos={filterTodos} />
 

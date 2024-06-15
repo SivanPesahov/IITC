@@ -3,6 +3,7 @@ import axios from "axios";
 
 function AddTodoForm(props){
 
+    const {todoList, newTodo, setNewTodo} = props
     const addingBar = useRef(null)
     const URL = 'http://localhost:8001/initialTodos/'
 
@@ -21,15 +22,15 @@ function AddTodoForm(props){
             }
     }
 
-    useEffect(() => {addingBar.current.focus()}, [props.todoList])
+    useEffect(() => {addingBar.current.focus()}, [todoList])
 
     return (
       <>
       <form className="add-form" onSubmit={createTodo} >
           <input
             type="text"
-            value={props.newTodo}
-            onChange={(ev) => props.setNewTodo(ev.target.value)}
+            value={newTodo}
+            onChange={(ev) => setNewTodo(ev.target.value)}
             ref={addingBar}
             placeholder="add new task here"
           />
