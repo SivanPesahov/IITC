@@ -1,48 +1,23 @@
 {
   "initialTodos": [
     {
-      "id": "6",
-      "title": "Create Portfolio Website",
-      "isComplete": false
-    },
-    {
-      "id": "7",
-      "title": "Learn TypeScript",
+      "id": "3c42",
+      "title": "run",
+      "labels": [
+        "1",
+        "2",
+        "3"
+      ],
       "isComplete": true
     },
     {
-      "id": "8",
-      "title": "Refactor Codebase",
-      "isComplete": true
-    },
-    {
-      "id": "9",
-      "title": "Optimize Performance",
-      "isComplete": true
-    },
-    {
-      "id": "10",
-      "title": "Deploy to Production",
-      "isComplete": false
-    },
-    {
-      "id": "5da5",
-      "title": "bench 100kg",
-      "isComplete": true
-    },
-    {
-      "id": "520e",
-      "title": "hello",
-      "isComplete": false
-    },
-    {
-      "id": "025d",
-      "title": "abc",
-      "isComplete": true
-    },
-    {
-      "id": "01a5",
-      "title": "test",
+      "id": "27c9",
+      "title": "dance",
+      "labels": [
+        "1",
+        "2",
+        "3"
+      ],
       "isComplete": false
     }
   ]
